@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.males.warehouse";
+option java_outer_classname = "WarehouseProto";
+option optimize_for = SPEED;
+
+package org.macales.warehouse;
+
+service WarehouseService {
+  rpc GetStockInfo(GetStockInfoRequest) returns (GetStockInfoResponse){
+
+  }
+
+  rpc Reserve(ReserveRequest) returns (ReserveResponse){
+
+  }
+}
+
+message GetStockInfoRequest{
+  uint32 sku_id = 1;
+}
+
+message GetStockInfoResponse{
+  uint64 count = 1;
+}
+
+message ReserveRequest{
+  uint32 sku_id = 1;
+  uint64 count = 2;
+}
+
+message ReserveResponse{
+  bool success = 1;
+}
